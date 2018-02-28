@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>Charlotte</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		function checkBest(str){
+      window.open("Charlotte_bestDish.html?name="+str,'_blank')
+		}
+		function checkWorst(str){
+			window.open("Charlotte_worstDish.html?name="+str,'_blank')
+		}
+
+	</script>
+	<script>
+		function myFunction() {
+  			var input, filter, table, tr, td, i;
+  			input = document.getElementById("myInput");
+  			filter = input.value.toUpperCase();
+  			table = document.getElementById("myTable");
+  			tr = table.getElementsByTagName("tr");
+  			for (i = 0; i < tr.length; i++) {
+    			td = tr[i].getElementsByTagName("td")[1];
+    			if (td) {
+      				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        			tr[i].style.display = "";
+      			} 
+      				else {
+        				tr[i].style.display = "none";
+      				}
+    			}	       
+  			}
+		}
+	</script>
+	<style type="text/css">
+		button{
+			width: 40%;
+    		height: 25px;
+    		margin-right: 10px;
+		}
+		
+		* {
+  			box-sizing: border-box;
+		}
+		#myInput {
+  			background-image: url('images/search.png');
+  			background-position: 10px 12px;
+  			background-repeat: no-repeat;
+  			background-size: 22px;
+	  		width: 100%;
+	  		font-size: 16px;
+  			padding: 12px 20px 12px 40px;
+  			border: 3px solid #F42B03;
+  			margin-bottom: 12px;
+		}
+		#myTable {
+  			border-collapse: collapse;
+  			width: 100%;
+	  		border: 1px solid #ddd;
+  			font-size: 18px;
+		}
+
+		#myTable th, #myTable td {
+  			text-align: left;
+  			padding: 12px;
+		}
+
+		#myTable tr {
+  			border-bottom: 1px solid #ddd;
+		}
+
+		#myTable tr.header{
+			background-color: #F05D23;
+			color: white;
+		}
+		#myTable tr:hover {
+  			background-color: #FFFF33;
+		}
+		#myTable tr.header:hover {
+			background-color:#F05D23;
+
+		}
+
+
+
+	</style>
+	<style type="text/css">
+    #title{
+      background-color: #D10000;
+      height: 50px;
+      background-image: url(images/restaurant-eating-tools-set-of-three-pieces.png);
+      background-repeat: no-repeat;
+      background-size: 30px;
+      background-position: 10px 8px;
+      margin:-8px;
+
+    }
+  	</style>
+</head>
+<body>
+	<div id="title">
+      <h2 style="color: white; margin-top: 0px;font-size: 20px; font-weight: normal; padding-top: 13px; padding-left: 50px">由餐廳評論自動探勘拿手好菜</h2>
+    </div>
+	<h2>Search Category</h2>
+
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for category.." title="Type in a name" >
+	
+	<h2>Charlotte Restaurant</h2>
+	<table id="myTable">
+  		<tr class="header">
+    		<th style="width:25%;">Restaurant Name</th>
+   			<th style="width:45%;">Category</th>
+   			<th style="width:30%;"></th>
+  		</tr>
+  		
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/queen-city-q-charlotte">Queen City Q</a></td>
+    		<td>Barbeque, Southern</td>
+    		<td><button formtarget="_blank"  onclick="checkBest('Queen City Q')">招牌菜</button><button onclick="checkWorst('Queen City Q')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/solstice-tavern-charlotte">Solstice Tavern</a></td>
+    		<td>Nightlife, Bars, Sports Bars, Burgers, Fast Food</td>
+    		<td><button onclick="checkBest('Solstice Tavern')">招牌菜</button><button onclick="checkWorst('Solstice Tavern')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/kid-cashew-charlotte">Kid Cashew</a></td>
+    		<td>Tapas/Small Plates, Barbeque, Mediterranean, American (New)</td>
+    		<td><button onclick="checkBest('Kid Cashew')">招牌菜</button><button onclick="checkWorst('Kid Cashew')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/hooters-charlotte">Hooters</a></td>
+    		<td>Sports Bars, American (Traditional), Chicken Wings, Nightlife, Bars</td>
+    		<td><button onclick="checkBest('Hooters')">招牌菜</button><button onclick="checkWorst('Hooters')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/aix-en-provence-charlotte">Aix en Provence</a></td>
+    		<td>Mediterranean, Spanish, Italian, French</td>
+    		<td><button onclick="checkBest('Aix en Provence')">招牌菜</button><button onclick="checkWorst('Aix en Provence')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/china-cafe-charlotte">China Cafe</a></td>
+    		<td>Chinese</td>
+    		<td><button onclick="checkBest('China Cafe')">招牌菜</button><button onclick="checkWorst('China Cafe')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/dolce-ristorante-charlotte">Dolce Ristorante</a></td>
+    		<td>Italian, Desserts, Bars, Nightlife, Wine Bars, American (New)</td>
+    		<td><button onclick="checkBest('Dolce Ristorante')">招牌菜</button><button onclick="checkWorst('Dolce Ristorante')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/bread-and-kabob-charlotte">Bread and Kabob</a></td>
+    		<td>Falafel, Bakeries, Greek, Arabian, Grocery, Delis, Halal, Middle Eastern, Mediterranean</td>
+    		<td><button onclick="checkBest('Bread and Kabob')">招牌菜</button><button onclick="checkWorst('Bread and Kabob')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/wild-wing-cafe-charlotte-3">Wild Wing Cafe</a></td>
+    		<td>Burgers, Sports Bars, Sandwiches, Bars, Nightlife, Chicken Wings, American (Traditional)</td>
+    		<td><button onclick="checkBest('Wild Wing Cafe')">招牌菜</button><button onclick="checkWorst('Wild Wing Cafe')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/the-wok-charlotte">The Wok</a></td>
+    		<td>Chinese</td>
+    		<td><button onclick="checkBest('The Wok')">招牌菜</button><button onclick="checkWorst('The Wok')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/dilworth-neighborhood-grille-charlotte">Dilworth Neighborhood Grille</a></td>
+    		<td>Sandwiches, Bars, Sports Bars, Nightlife, American (Traditional)</td>
+    		<td><button onclick="checkBest('Dilworth Neighborhood Grille')">招牌菜</button><button onclick="checkWorst('Dilworth Neighborhood Grille')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/charlotte-cafe-charlotte">Charlotte Cafe</a></td>
+    		<td>Southern, Sandwiches, American (Traditional), Breakfast &amp; Brunch</td>
+    		<td><button onclick="checkBest('Charlotte Cafe')">招牌菜</button><button onclick="checkWorst('Charlotte Cafe')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/the-southern-gourmet-charlotte">The Southern Gourmet</a></td>
+    		<td>Caterers, Specialty Food, Southern, Event Planning &amp; Services</td>
+    		<td><button onclick="checkBest('The Southern Gourmet')">招牌菜</button><button onclick="checkWorst('The Southern Gourmet')" >地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a  target="_blank" href="https://www.yelp.com/biz/us-fried-chicken-charlotte">US Fried Chicken</a></td>
+    		<td>Burgers, American (Traditional), Chicken Wings</td>
+    		<td><button onclick="checkBest('US Fried Chicken')">招牌菜</button><button onclick="checkWorst('US Fried Chicken')">地雷菜</button></td>
+  		</tr>
+	</table>
+</body>
+</html>

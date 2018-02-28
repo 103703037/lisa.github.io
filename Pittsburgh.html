@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>Pittsburgh</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		function checkBest(str){
+			window.open("Pittsburgh_bestDish.html?name="+str,'_blank')
+		}
+		function checkWorst(str){
+			window.open("Pittsburgh_worstDish.html?name="+str,'_blank')
+		}
+
+	</script>
+	<script>
+		function myFunction() {
+  			var input, filter, table, tr, td, i;
+  			input = document.getElementById("myInput");
+  			filter = input.value.toUpperCase();
+  			table = document.getElementById("myTable");
+  			tr = table.getElementsByTagName("tr");
+  			for (i = 0; i < tr.length; i++) {
+    			td = tr[i].getElementsByTagName("td")[1];
+    			if (td) {
+      				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        			tr[i].style.display = "";
+      			} 
+      				else {
+        				tr[i].style.display = "none";
+      				}
+    			}	       
+  			}
+		}
+	</script>
+	<style type="text/css">
+		button{
+			width: 40%;
+    		height: 25px;
+    		margin-right: 10px;
+		}
+		
+		* {
+  			box-sizing: border-box;
+		}
+		#myInput {
+  			background-image: url('images/search.png');
+  			background-position: 10px 12px;
+  			background-repeat: no-repeat;
+  			background-size: 22px;
+	  		width: 100%;
+	  		font-size: 16px;
+  			padding: 12px 20px 12px 40px;
+  			border: 3px solid #F42B03;
+  			margin-bottom: 12px;
+		}
+		#myTable {
+  			border-collapse: collapse;
+  			width: 100%;
+	  		border: 1px solid #ddd;
+  			font-size: 18px;
+		}
+
+		#myTable th, #myTable td {
+  			text-align: left;
+  			padding: 12px;
+		}
+
+		#myTable tr {
+  			border-bottom: 1px solid #ddd;
+		}
+
+		#myTable tr.header{
+			background-color: #F05D23;
+			color: white;
+		}
+		#myTable tr:hover {
+  			background-color: #FFFF33;
+		}
+		#myTable tr.header:hover {
+			background-color:#F05D23;
+
+		}
+
+
+
+	</style>
+	<style type="text/css">
+    #title{
+      background-color: #D10000;
+      height: 50px;
+      background-image: url(images/restaurant-eating-tools-set-of-three-pieces.png);
+      background-repeat: no-repeat;
+      background-size: 30px;
+      background-position: 10px 8px;
+      margin:-8px;
+
+    }
+  	</style>
+</head>
+<body>
+	<div id="title">
+      <h2 style="color: white; margin-top: 0px;font-size: 20px; font-weight: normal; padding-top: 13px; padding-left: 50px">由餐廳評論自動探勘拿手好菜</h2>
+    </div>
+	<h2>Search Category</h2>
+
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for category.." title="Type in a name" >
+	
+	<h2>Pittsburgh Restaurant</h2>
+	<table id="myTable">
+  		<tr class="header">
+    		<th style="width:25%;">Restaurant Name</th>
+   			<th style="width:45%;">Category</th>
+   			<th style="width:30%;"></th>
+  		</tr>
+  		
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/tana-ethiopian-cuisine-pittsburgh">Tana Ethiopian Cuisine</a></td>
+    		<td>Bars, Nightlife, Ethiopian</td>
+    		<td><button onclick="checkBest('Tana Ethiopian Cuisine')">招牌菜</button><button onclick="checkWorst('Tana Ethiopian Cuisine')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/korea-garden-pittsburgh">Korea Garden</a></td>
+    		<td>Korean</td>
+    		<td><button onclick="checkBest('Korea Garden')">招牌菜</button><button onclick="checkWorst('Korea Garden')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/katana-pittsburgh">Katana</a></td>
+    		<td>Japanese, Sushi Bars, Chinese</td>
+    		<td><button onclick="checkBest('Katana')">招牌菜</button><button onclick="checkWorst('Katana')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/b52-cafe-pittsburgh-4">B52 Cafe</a></td>
+    		<td>Cafes, Middle Eastern, Breakfast &amp; Brunch, Vegan, Bakeries,Coffee &amp; Tea</td>
+    		<td><button onclick="checkBest('B52 Cafe')">招牌菜</button><button onclick="checkWorst('B52 Cafe')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/orient-express-pittsburgh">Orient Express</a></td>
+    		<td>Chinese</td>
+    		<td><button onclick="checkBest('Orient Express')">招牌菜</button><button onclick="checkWorst('Orient Express')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/dijlah-restaurant-and-cafe-pittsburgh">Dijlah Restaurant</a></td>
+    		<td>Hookah Bars, Bars</td>
+    		<td><button onclick="checkBest('Dijlah Restaurant')">招牌菜</button><button onclick="checkWorst('Dijlah Restaurant')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/mcfaddens-saloon-pittsburgh">McFadden's Saloon</a></td>
+    		<td>Nightlife, Bars</td>
+    		<td><button onclick="checkBest('McFadden\'s Saloon')">招牌菜</button><button onclick="checkWorst('McFadden\'s Saloon')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/say-cheese-pizza-pittsburgh-2">Say Cheese! Pizza</a></td>
+    		<td>Pizza</td>
+    		<td><button onclick="checkBest('Say Cheese! Pizza')">招牌菜</button><button onclick="checkWorst('Say Cheese! Pizza')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/india-garden-monroeville">India Garden</a></td>
+    		<td>Indian</td>
+    		<td><button onclick="checkBest('India Garden')">招牌菜</button><button onclick="checkWorst('India Garden')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/the-foundry-table-and-tap-pittsburgh">The Foundry Table &amp; Tap</a></td>
+    		<td>Beer, Wine &amp; Spirits</td>
+    		<td><button onclick="checkBest('The Foundry Table & Tap')">招牌菜</button><button onclick="checkWorst('The Foundry Table & Tap')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/eat-unique-pittsburgh">Eat Unique</a></td>
+    		<td>Delis</td>
+    		<td><button onclick="checkBest('Eat Unique')">招牌菜</button><button onclick="checkWorst('Eat Unique')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/sun-penang-pittsburgh">Sun Penang</a></td>
+    		<td>Malaysian</td>
+    		<td><button onclick="checkBest('Sun Penang')">招牌菜</button><button onclick="checkWorst('Sun Penang')" >地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/caliente-pizza-and-draft-house-pittsburgh-2">Caliente Pizza &amp; Draft House</a></td>
+    		<td>Bars, Sandwiches, Beer Bar, Pizza, Nightlife</td>
+    		<td><button onclick="checkBest('Caliente Pizza & Draft House')">招牌菜</button><button onclick="checkWorst('Caliente Pizza & Draft House')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/dianoias-eatery-pittsburgh-2">DiAnoia's Eatery</a></td>
+    		<td>Delis, Sandwiches, Italian</td>
+    		<td><button onclick="checkBest('DiAnoia\'s Eatery')">招牌菜</button><button onclick="checkWorst('DiAnoia\'s Eatery')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/taj-mahal-pittsburgh">Taj Mahal</a></td>
+    		<td>Indian, Pakistani</td>
+    		<td><button onclick="checkBest('Taj Mahal')">招牌菜</button><button onclick="checkWorst('Taj Mahal')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/the-pitt-stop-bellevue">The Pitt Stop</a></td>
+    		<td>Event Planning &amp; Services, Barbeque, Caterers</td>
+    		<td><button onclick="checkBest('The Pitt Stop')">招牌菜</button><button onclick="checkWorst('The Pitt Stop')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/smallman-street-deli-pittsburgh-2">Smallman Street Deli</a></td>
+    		<td>Sandwiches, Delis, Caterers, Event Planning &amp; Services</td>
+    		<td><button onclick="checkBest('Smallman Street Deli')">招牌菜</button><button onclick="checkWorst('Smallman Street Deli')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/sola-pizza-pittsburgh">Sola Pizza</a></td>
+    		<td>Pizza</td>
+    		<td><button onclick="checkBest('Sola Pizza')">招牌菜</button><button onclick="checkWorst('Sola Pizza')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/maximum-flavor-pizza-shop-pittsburgh">Maximum Flavor Pizza Shop</a></td>
+    		<td>Pizza</td>
+    		<td><button onclick="checkBest('Maximum Flavor Pizza Shop')">招牌菜</button><button onclick="checkWorst('Maximum Flavor Pizza Shop')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/italian-village-pizza-pittsburgh-3">Italian Village Pizza</a></td>
+    		<td>Pizza</td>
+    		<td><button onclick="checkBest('Italian Village Pizza')">招牌菜</button><button onclick="checkWorst('Italian Village Pizza')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/peoples-indian-restaurant-pittsburgh">People's Indian Restaurant</a></td>
+    		<td>Indian</td>
+    		<td><button onclick="checkBest('People\'s Indian Restaurant')">招牌菜</button><button onclick="checkWorst('People\'s Indian Restaurant')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/thai-place-restaurant-pittsburgh-3">Thai Place Restaurant</a></td>
+    		<td>Thai</td>
+    		<td><button onclick="checkBest('Thai Place Restaurant')">招牌菜</button><button onclick="checkWorst('Thai Place Restaurant')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/la-gondola-pizzeria-and-restaurant-pittsburgh">La Gondola Pizzeria &amp; Restaurant</a></td>
+    		<td>Pizza, Italian</td>
+    		<td><button onclick="checkBest('La Gondola Pizzeria & Restaurant')">招牌菜</button><button onclick="checkWorst('La Gondola Pizzeria & Restaurant')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/pizza-bellino-pittsburgh">Pizza Bellino</a></td>
+    		<td>Pizza, Chicken Wings, Salad</td>
+    		<td><button onclick="checkBest('Pizza Bellino')">招牌菜</button><button onclick="checkWorst('Pizza Bellino')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/sichuan-gourmet-pittsburgh">Sichuan Gourmet</a></td>
+    		<td>Chinese, Szechuan</td>
+    		<td><button onclick="checkBest('Sichuan Gourmet')">招牌菜</button><button onclick="checkWorst('Sichuan Gourmet')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/silkys-sports-bar-and-grill-pittsburgh-2">Silky's Sports Bar &amp; Grill</a></td>
+    		<td>Nightlife, Restaurants, Bars, Sports Bars</td>
+    		<td><button onclick="checkBest('Silky\'s Sports Bar & Grill')">招牌菜</button><button onclick="checkWorst('Silky\'s Sports Bar & Grill')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/sals-city-deli-pittsburgh">Sal's City Deli</a></td>
+    		<td>Delis, American (Traditional)</td>
+    		<td><button onclick="checkBest('Sal\'s City Deli')">招牌菜</button><button onclick="checkWorst('Sal\'s City Deli')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/top-shabu-shabu-and-lounge-pittsburgh">Top Shabu-Shabu &amp; Lounge</a></td>
+    		<td>Seafood, Chinese, Soup, Sushi Bars, Hot Pot, Japanese, Asian Fusion</td>
+    		<td><button onclick="checkBest('Top Shabu-Shabu & Lounge')">招牌菜</button><button onclick="checkWorst('Top Shabu-Shabu & Lounge')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/tasty-chinese-restaurant-pittsburgh">Tasty Chinese Restaurant</a></td>
+    		<td>Chinese</td>
+    		<td><button onclick="checkBest('Tasty Chinese Restaurant')">招牌菜</button><button onclick="checkWorst('Tasty Chinese Restaurant')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/pizza-perfectta-pittsburgh-3">Pizza Perfectta</a></td>
+    		<td>Pizza</td>
+    		<td><button onclick="checkBest('Pizza Perfectta')">招牌菜</button><button onclick="checkWorst('Pizza Perfectta')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://nz.yelp.com/biz/afamia-mediterranean-grille-pittsburgh?start=20&ylist=JmgET0jKWGG-aCq3MS5Elw">Afamia Mediterranean Grille</a></td>
+    		<td>Mediterranean</td>
+    		<td><button onclick="checkBest('Afamia Mediterranean Grille')">招牌菜</button><button onclick="checkWorst('Afamia Mediterranean Grille')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/the-mintt-pittsburgh">The Mintt</a></td>
+    		<td>Indian</td>
+    		<td><button onclick="checkBest('The Mintt')">招牌菜</button><button onclick="checkWorst('The Mintt')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com.tw/biz/r-and-bs-pizza-place-pittsburgh">R&amp;B's Pizza Place</a></td>
+    		<td>Sandwiches, Pizza, Italian</td>
+    		<td><button onclick="checkBest('R&B\'s Pizza Place')">招牌菜</button><button onclick="checkWorst('R&B\'s Pizza Place')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/pizza-palermo-pittsburgh">Pizza Palermo</a></td>
+    		<td>Pizza</td>
+    		<td><button onclick="checkBest('Pizza Palermo')">招牌菜</button><button onclick="checkWorst('Pizza Palermo')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/sinful-sweets-chocolate-company-pittsburgh">Sinful Sweets Chocolate Company</a></td>
+    		<td>Desserts, Specialty Food, Candy Stores</td>
+    		<td><button onclick="checkBest('Sinful Sweets Chocolate Company')">招牌菜</button><button onclick="checkWorst('Sinful Sweets Chocolate Company')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/la-felice-pizza-and-pasta-pittsburgh-2">La Felice Pizza and Pasta</a></td>
+    		<td>Pizza, Sandwiches, Burgers, Halal</td>
+    		<td><button onclick="checkBest('La Felice Pizza and Pasta')">招牌菜</button><button onclick="checkWorst('La Felice Pizza and Pasta')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/soba-pittsburgh">Soba</a></td>
+    		<td>Korean, Asian Fusion, Japanese</td>
+    		<td><button onclick="checkBest('Soba')">招牌菜</button><button onclick="checkWorst('Soba')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/the-pretzel-shop-pittsburgh">The Pretzel Shop</a></td>
+    		<td>American (Traditional), Pretzels, Sandwiches</td>
+    		<td><button onclick="checkBest('The Pretzel Shop')">招牌菜</button><button onclick="checkWorst('The Pretzel Shop')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/jabos-smoke-house-and-saloon-pittsburgh-2">Jabo's Smoque House and Saloon</a></td>
+    		<td>Barbeque, Hair Salons, Smokehouse, Beauty &amp; Spas</td>
+    		<td><button onclick="checkBest('Jabo\'s Smoque House and Saloon')">招牌菜</button><button onclick="checkWorst('Jabo\'s Smoque House and Saloon')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/tamarind-savoring-india-pittsburgh">Tamarind Savoring India</a></td>
+    		<td>Bakeries, Pakistani, Indian</td>
+    		<td><button onclick="checkBest('Tamarind Savoring India')">招牌菜</button><button onclick="checkWorst('Tamarind Savoring India')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/s-aiken-bar-and-grille-pittsburgh-2">S Aiken Bar &amp; Grille</a></td>
+    		<td>Bars, Sports Bars, Pizza, Nightlife</td>
+    		<td><button onclick="checkBest('S Aiken Bar & Grille')">招牌菜</button><button onclick="checkWorst('S Aiken Bar & Grille')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/bangkok-balcony-pittsburgh">Bangkok Balcony</a></td>
+    		<td>Thai</td>
+    		<td><button onclick="checkBest('Bangkok Balcony')">招牌菜</button><button onclick="checkWorst('Bangkok Balcony')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/pizza-parma-pittsburgh-2">Pizza Parma</a></td>
+    		<td>Event Planning &amp; Services, Caterers, Pizza, Food Delivery Services</td>
+    		<td><button onclick="checkBest('Pizza Parma')">招牌菜</button><button onclick="checkWorst('Pizza Parma')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/campus-deli-pittsburgh">Campus Deli</a></td>
+    		<td>Sandwiches, Delis</td>
+    		<td><button onclick="checkBest('Campus Deli')">招牌菜</button><button onclick="checkWorst('Campus Deli')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/rose-tea-cafe-pittsburgh-5">Rose Tea Cafe</a></td>
+    		<td>Cafes, Bubble Tea, Coffee &amp; Tea, Chinese, Taiwanese</td>
+    		<td><button onclick="checkBest('Rose Tea Cafe')">招牌菜</button><button onclick="checkWorst('Rose Tea Cafe')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/pastitsio-pittsburgh">Pastitsio</a></td>
+    		<td>Delis, Greek, Street Vendors, Mediterranean</td>
+    		<td><button onclick="checkBest('Pastitsio')">招牌菜</button><button onclick="checkWorst('Pastitsio')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/el-burro-pittsburgh">El Burro</a></td>
+    		<td>Mexican, Tacos</td>
+    		<td><button onclick="checkBest('El Burro')">招牌菜</button><button onclick="checkWorst('El Burro')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/franktuary-lower-lawrenceville">Franktuary</a></td>
+    		<td>Vegetarian, Poutineries, Hot Dogs, Salad</td>
+    		<td><button onclick="checkBest('Franktuary')">招牌菜</button><button onclick="checkWorst('Franktuary')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/curry-away-pittsburgh">Curry Away</a></td>
+    		<td>Thai</td>
+    		<td><button onclick="checkBest('Curry Away')">招牌菜</button><button onclick="checkWorst('Curry Away')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/sushi-tomo-pittsburgh">Sushi Tomo</a></td>
+    		<td>Japanese, Sushi Bars</td>
+    		<td><button onclick="checkBest('Sushi Tomo')">招牌菜</button><button onclick="checkWorst('Sushi Tomo')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/scoops-on-beverly-pittsburgh">Scoops &amp; More</a></td>
+    		<td>Burgers, Chicken Wings, Ice Cream &amp; Frozen Yogurt, American (Traditional)</td>
+    		<td><button onclick="checkBest('Scoops & More')">招牌菜</button><button onclick="checkWorst('Scoops & More')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/august-henrys-city-saloon-pittsburgh">August Henry's City Saloon</a></td>
+    		<td>American (Traditional)</td>
+    		<td><button onclick="checkBest('August Henry\'s City Saloon')">招牌菜</button><button onclick="checkWorst('August Henry\'s City Saloon')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/mandys-pizza-pittsburgh-2">Mandy's Pizza</a></td>
+    		<td>Pizza</td>
+    		<td><button onclick="checkBest('Mandy\'s Pizza')">招牌菜</button><button onclick="checkWorst('Mandy\'s Pizza')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/local-bar-kitchen-pittsburgh">Local Bar + Kitchen</a></td>
+    		<td>American (New), Breakfast &amp; Brunch, Nightlife, Bars, Burgers</td>
+    		<td><button onclick="checkBest('Local Bar + Kitchen')">招牌菜</button><button onclick="checkWorst('Local Bar + Kitchen')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/little-bangkok-in-the-strip-pittsburgh">Little Bangkok In the Strip</a></td>
+    		<td>Thai</td>
+    		<td><button onclick="checkBest('Little Bangkok In the Strip')">招牌菜</button><button onclick="checkWorst('Little Bangkok In the Strip')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/fredos-deli-pittsburgh">Fredos Deli</a></td>
+    		<td>Delis, Sandwiches</td>
+    		<td><button onclick="checkBest('Fredos Deli')">招牌菜</button><button onclick="checkWorst('Fredos Deli')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/geppetto-cafe-pittsburgh-2">Geppetto Cafe</a></td>
+    		<td>Breakfast &amp; Brunch, Coffee &amp; Tea, Creperies</td>
+    		<td><button onclick="checkBest('Geppetto Cafe')">招牌菜</button><button onclick="checkWorst('Geppetto Cafe')">地雷菜</button></td>
+  		</tr>
+  		<tr>
+    		<td><a href="https://www.yelp.com/biz/little-asia-pittsburgh-2">Little Asia</a></td>
+    		<td>Sushi Bars, Chinese</td>
+    		<td><button onclick="checkBest('Little Asia')">招牌菜</button><button onclick="checkWorst('Little Asia')">地雷菜</button></td>
+  		</tr>
+	</table>
+</body>
+</html>

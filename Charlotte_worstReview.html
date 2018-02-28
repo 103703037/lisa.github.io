@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Charlotte</title>
+    <meta name="author" content="Derek Eder">
+    <meta content="Display any CSV file as a searchable, filterable, pretty HTML table" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="css/bestworstPage.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <style type="text/css">
+    #title{
+      background-color: #D10000;
+      height: 50px;
+      background-image: url(images/restaurant-eating-tools-set-of-three-pieces.png);
+      background-repeat: no-repeat;
+      background-size: 30px;
+      background-position: 10px 8px;
+      margin:-8px;
+      margin-bottom: 10px;
+      margin-top: 0px;
+    }
+    </style>
+  <body>
+    <div id="title">
+      <h2 style="color: white; margin-top: 0px;font-size: 20px; font-weight: normal; padding-top: 13px; padding-left: 50px">由餐廳評論自動探勘拿手好菜</h2>
+    </div>
+    <h1 id="dishName" style="text-align: center;"></h1>
+    <div id="photo"></div>
+    <div id="NotLoadYet" style="text-align: center;"></div>
+    <div class="container-fluid">
+
+      
+      
+      <div id='table-container'></div>
+
+    </div><!-- /.container -->
+    <!-- Modal -->
+  
+
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.csv.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="js/csv_to_html_table.js"></script>
+
+    <script type="text/javascript">
+
+    </script>
+    <script type="text/javascript">
+      var query = window.location.search.substring(1); 
+      var qs = getQueryParams(query);
+      //console.log(qs) //-> get rest name
+      $('#dishName').append(qs[0]+" ---- "+qs[1]);
+      function getQueryParams(qs) {
+        qs = qs.split('+').join(' ');
+
+        var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+        while (tokens = re.exec(qs)) {
+          params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+        }
+        s = params.name
+        s = s.replace(/_/g," ");
+        var index = s.indexOf(';');
+        rest_name = s.substring(0,index)
+        dishName = s.substring(index+1)
+        return [rest_name,dishName];
+      }
+      
+      
+      function format_link(link){
+        if (link)
+          return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+        else
+          return "";
+      }
+
+      CsvToHtmlTable.init({
+        csv_path: 'data/Charlotte_useExact&PartialMatch_review_worst.csv',
+        element: 'table-container', 
+        allow_download: false,
+        csv_options: {separator: ',', delimiter: '"'},
+        datatables_options: {"paging": false,"columnDefs": [
+        { "visible": false, "targets": [0,1] }, { className: "review", "targets": [ 2 ] }],"searchCols": [{ "search": qs[0] },{ "search": qs[1] },null],
+        },
+      });
+
+      var hasAlreadyShow = false;
+      load()
+      function load(){
+        if($('.review').html() == undefined){
+
+          if(hasAlreadyShow){
+
+            window.setTimeout(load,100);
+          }
+          else{
+            
+            $('#NotLoadYet').append('<h3>資料加載中...</h3>');
+            hasAlreadyShow = true;
+            window.setTimeout(load,100);
+          }
+        }
+        else{
+          $('#NotLoadYet').empty();
+        }
+      }
+      loadPicture()
+       function loadPicture(){
+            str = "images/"+qs[0] + "_" +qs[1]+".jpg"
+            str = str.replace(/\s/g, ''); //把blank拿掉
+            checkIfFileLoaded(str)
+      }
+      function checkIfFileLoaded(fileName) {
+        $.ajax({
+          url: fileName, //or your url
+          success: function(data){
+            $('#photo').append("<img src=\'"+fileName+"\' style = 'width: 30%; margin:20px auto; display:block;'>");
+          },
+          error: function(data){
+            $('#photo').append("<h4 style = 'text-align: center; margin:20px auto; display:block;'>尚未有圖片</h4>");
+          },
+        });
+      }
+    </script>
+    <style type="text/css">
+      #table-container-table_filter,#table-container-table_info{
+        display: none;
+      }
+      
+      #table-container-table > tbody tr td{
+        font-size: 20px;
+        line-height: 30px;
+        text-align: justify;
+      }
+    </style>
+    
+  </body>
+</html>

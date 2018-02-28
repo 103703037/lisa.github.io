@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Charlotte</title>
+    <meta name="author" content="Derek Eder">
+    <meta content="Display any CSV file as a searchable, filterable, pretty HTML table" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script type="text/javascript" src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <style type="text/css">
+    #title{
+      background-color: #D10000;
+      height: 50px;
+      background-image: url(images/restaurant-eating-tools-set-of-three-pieces.png);
+      background-repeat: no-repeat;
+      background-size: 30px;
+      background-position: 10px 8px;
+    }
+  </style>
+  <body >
+    <div id="title">
+      <h2 style="color: white; margin-top: 0px;font-size: 20px; font-weight: normal; padding-top: 13px; padding-left: 50px">由餐廳評論自動探勘拿手好菜</h2>
+    </div>
+    
+    <div style="text-align: center;">
+      <h2>請選擇城市</h2>
+      <select id="country">
+        <option value="Charlotte" selected>Charlotte</option>
+        <option value="Pittsburgh">Pittsburgh</option>
+        
+      </select>
+      <button id="chooseCountry">確定</button>
+    </div>
+  </body>
+  
+</html>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#chooseCountry").click(function(){
+      var country = $('#country').val();
+      window.location.href = country+".html";
+    });
+  });
+</script>
